@@ -2,6 +2,11 @@
 #include <stdio.h>
 #include <floatobject.h>
 #include <bytesobject.h>
+
+void print_python_float(PyObject *p);
+void print_python_bytes(PyObject *p);
+void print_python_list(PyObject *p);
+
 /**
  * print_python_float - print data of Python FloatObject
  * @p: the PyObject
