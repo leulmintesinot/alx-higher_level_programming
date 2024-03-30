@@ -1,28 +1,17 @@
 #!/usr/bin/python3
 
-def find_peak(list_of_int):
-
-    if list_of_int is None or len(list_of_int) == 0:
+def find_peak(list_of_integers):
+    if not list_of_integers:
         return None
 
-    if len(list_of_int) == 1:
-        return list_of_int[0]
+    low = 0
+    high = len(list_of_integers) - 1
 
-    mid_idx = int(len(list_of_int) / 2)
-
-    if mid_idx != len(list_of_int) - 1:
-        if list_of_int[mid_idx - 1] < list_of_int[mid_idx] and\
-           list_of_int[mid_idx + 1] < list_of_int[mid_idx]:
-            return list_of_int[mid_idx]
-    else:
-        if list_of_int[mid_idx - 1] < list_of_int[mid_idx]:
-            return list_of_int[mid_idx]
+    while low < high:
+        mid = (low + high) // 2
+        if list_of_integers[mid] < list_of_integers[mid + 1]:
+            low = mid + 1
         else:
-            return list_of_int[mid_idx - 1]
+            high = mid
 
-    if list_of_int[mid_idx - 1] > list_of_int[mid_idx]:
-        a_list = list_of_int[0:mid_idx]
-    else:
-        a_list = list_of_int[mid_idx + 1:]
-
-    return find_peak(a_list)
+    return list_of_integers[low]
