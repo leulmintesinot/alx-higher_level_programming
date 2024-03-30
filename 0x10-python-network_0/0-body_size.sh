@@ -1,3 +1,3 @@
 #!/bin/bash
-URL=$1
-curl -s "$URL" | wc -c
+SIZE=$(curl -s "$1" | wc -c)
+echo $SIZE
